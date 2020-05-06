@@ -12,3 +12,4 @@ RUN echo 'gem "tdiary-io-mongodb"' >> Gemfile.local; \
     sed -i "s/@style.*$/@style = 'BlogWiki'\n\n@io_class = TDiary::IO::MongoDB\n@database_url = ENV['MONGODB_URI'] || ENV['MONGOLAB_URI']\n@logger = Logger.new(\$stderr)/" tdiary.conf
 COPY ["theme/tdiaryorg/", "theme/tdiaryorg/"]
 COPY ["tdiary.conf", "tdiary.conf"]
+COPY ["misc/plugin/", "misc/plugin/"]
