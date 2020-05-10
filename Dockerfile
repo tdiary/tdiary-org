@@ -13,3 +13,5 @@ RUN echo 'gem "tdiary-io-mongodb"' >> Gemfile.local; \
 COPY ["theme/tdiaryorg/", "theme/tdiaryorg/"]
 COPY ["tdiary.conf", "tdiary.conf"]
 COPY ["misc/plugin/", "misc/plugin/"]
+COPY ["js/", "js/"]
+COPY ["robots.txt", "public/robots.txt"]
