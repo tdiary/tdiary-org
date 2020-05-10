@@ -36,6 +36,7 @@ def cloudflare_purge_cache(pages = nil)
 			"files" => pages.append('', 'index.rdf').map{|u|"https://tdiary.org/#{u}"}
 		}
 	end
+	puts "try to purge caches:", params
 	res = http.post(uri.path, params.to_json, headers)
 	puts "purge cache result: #{res.code} #{res.body}"
 	return res.code
