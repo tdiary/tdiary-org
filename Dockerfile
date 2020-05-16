@@ -10,7 +10,7 @@ RUN echo 'gem "tdiary-io-mongodb"' >> Gemfile.local; \
     bundle --path=vendor/bundle --without=development:test --jobs=4 --retry=3; \
     sed -i "s/@data_path.*$/require 'tempfile'\n@data_path = Dir.tmpdir/" tdiary.conf; \
     sed -i "s/@style.*$/@style = 'BlogWiki'\n\n@io_class = TDiary::IO::MongoDB\n@database_url = ENV['MONGODB_URI'] || ENV['MONGOLAB_URI']\n@logger = Logger.new(\$stderr)/" tdiary.conf; \
-    sed -i "s/^.*'no-cache'.*$/\t\t\t\t\t\t\thead['Cache-Control'] = 'max-age=10'/" lib/tdiary/dispatcher/index_main.rb
+    sed -i "s/^.*'no-cache'.*$/\t\t\t\t\t\t\thead['Cache-Control'] = 'max-age=0,s-maxage=31536000'/" lib/tdiary/dispatcher/index_main.rb
 COPY ["theme/tdiaryorg/", "theme/tdiaryorg/"]
 COPY ["tdiary.conf", "tdiary.conf"]
 COPY ["misc/plugin/", "misc/plugin/"]
